@@ -8,7 +8,7 @@ export default function Portfolio() {
     frontend: [
       { name: "HTML & CSS", level: 75 },
       { name: "React", level: 60 },
-      { name: "Tailwinds", level: 90 },
+      { name: "Tailwind CSS", level: 90 },
     ],
     backend: [
       { name: "Node.js", level: 70 },
@@ -21,14 +21,24 @@ export default function Portfolio() {
       { name: "Firebase", level: 70 },
     ],
     design: [
-      { name: "CorrelDraw", level: 80 },
-      { name: "Photoshop", level: 60 },
-      { name: "Adobe XD", level: 75 },
+      { name: "CorelDRAW", level: 80 },
+      { name: "Photoshop", level: 65 },
+      { name: "Adobe Illustrator", level: 70 },
     ],
     marketing: [
       { name: "SEO & Social Media Audit", level: 90 },
       { name: "Social Media Ads", level: 70 },
       { name: "Email Marketing", level: 80 },
+    ],
+    graphics: [
+      { name: "Poster Design", level: 85 },
+      { name: "Logo & Brand Design", level: 75 },
+      { name: "Canva", level: 95 },
+    ],
+    aiResearch: [
+      { name: "AI Ethics & Policy", level: 85 },
+      { name: "AI in Journalism", level: 80 },
+      { name: "Responsible AI Frameworks", level: 75 },
     ],
   };
 
@@ -36,16 +46,17 @@ export default function Portfolio() {
     { key: "frontend", label: "Frontend" },
     { key: "backend", label: "Backend" },
     { key: "database", label: "Database" },
-    { key: "design", label: "Design Tool" },
-    { key: "marketing", label: "Marketing Tool" },
+    { key: "design", label: "Design Tools" },
+    { key: "marketing", label: "Marketing Tools" },
+    { key: "graphics", label: "Graphic Design" },
+    { key: "aiResearch", label: "AI Research" },
   ];
 
   return (
     <section className="min-h-screen bg-[#0B0F19] text-white py-16 px-6">
       <div className="max-w-5xl mx-auto text-center">
         {/* Heading */}
-        <p className="text-blue-400 uppercase tracking-widest mb-2">What I Do</p>
-        <h1 className="text-4xl font-bold mb-4">My SKills</h1>
+        <h1 className="text-4xl font-bold mb-4">My Skills</h1>
         <p className="text-gray-400 mb-12">
           Explore my skills and technical expertise across various categories.
         </p>
@@ -70,7 +81,7 @@ export default function Portfolio() {
         {/* Skills Box */}
         <div className="bg-[#121826] shadow-xl rounded-xl p-8 max-w-3xl mx-auto text-left border border-gray-700">
           <h2 className="text-xl font-semibold mb-6 text-blue-400">
-            {activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} Skills
+            {categories.find((c) => c.key === activeTab)?.label} Skills
           </h2>
 
           {skills[activeTab].map((skill, index) => (

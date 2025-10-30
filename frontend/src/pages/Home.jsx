@@ -104,7 +104,7 @@ export default function Home() {
       {/* 1 — Intro */}
       <section className="py-20 bg-[#0B1120] text-gray-300 text-center">
         <div className="flex justify-center mb-12 flex-wrap">
-          {Array.from("Welcome to My Wall").map((char, index) => (
+          {Array.from("My Portfolio").map((char, index) => (
             <motion.span
               key={index}
               initial={{ y: -60, opacity: 0 }}
@@ -260,7 +260,7 @@ export default function Home() {
     transition={{ duration: 0.6 }}
     className="text-3xl md:text-4xl font-bold text-blue-400 mb-8"
   >
-    Clients Comments About Me
+    Clients Comments
   </motion.h2>
 
   <div className="relative max-w-7xl mx-auto px-4 sm:px-6 overflow-hidden group">

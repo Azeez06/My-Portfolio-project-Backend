@@ -1,4 +1,4 @@
-import { Monitor, Link, Palette, Smartphone } from 'lucide-react';
+import { Monitor, Link, Palette, Smartphone, PenTool, Brain } from 'lucide-react';
 
 export default function Services() {
   const services = [
@@ -26,20 +26,29 @@ export default function Services() {
       description:
         'Creating engaging content and managing dynamic campaigns across multiple social media platforms to grow audiences.',
     },
+    {
+      icon: <PenTool className="w-10 h-10 text-blue-500 mb-3" />,
+      title: 'Graphic Design',
+      description:
+        'Designing visually compelling graphics that communicate ideas clearly and enhance brand identity across digital platforms.',
+    },
+    {
+      icon: <Brain className="w-10 h-10 text-blue-500 mb-3" />,
+      title: 'AI Ethics Research',
+      description:
+        'Exploring the social, ethical, and policy implications of artificial intelligence to promote fairness and accountability in technology.',
+    },
   ];
 
   return (
     <section className="bg-[#0b1120] text-white py-16 min-h-screen">
       <div className="max-w-6xl mx-auto px-6 text-center">
-        <h4 className="text-blue-400 uppercase tracking-wide mb-2">
-          What I Do
-        </h4>
         <h1 className="text-4xl font-bold mb-4">My Services</h1>
         <p className="text-gray-400 mb-12">
           Here are the services I offer to help bring your ideas to life.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div
               key={index}

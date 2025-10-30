@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 
 export default function Home() {
   const images = [
-    "src/assets/myphoto.jpg",
-    "src/assets/my photo 2.jpg",
-    "src/assets/my photo 3.jpg",
+      "/Graphics/myphoto.jpg",
+  "/Graphics/my photo 2.jpg",
+  "/Graphics/my photo 3.jpg",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -36,7 +36,7 @@ export default function Home() {
       name: "Bola",
       position: "Editor, The Pioneer Magazine",
       feedback:
-        "He’s a natural leader — thoughtful, humble, and committed to excellence. Every publication he led had a distinct voice.",
+        "He’s a very thoughtful, humble, and committed to excellence. Every publication he led had a distinct voice.",
     },
     {
       name: "Hassan",
@@ -54,7 +54,7 @@ export default function Home() {
       name: "Mariam",
       position: "Program Coordinator, Youth Innovators Hub",
       feedback:
-        "Reliable and visionary — he goes beyond expectations to deliver projects that truly stand out.",
+        "Azeez always goes beyond expectations to deliver projects that truly stand out.",
     },
   ];
 
@@ -104,7 +104,7 @@ export default function Home() {
       {/* 1 — Intro */}
       <section className="py-20 bg-[#0B1120] text-gray-300 text-center">
         <div className="flex justify-center mb-12 flex-wrap">
-          {Array.from("Welcome to My Portfolio").map((char, index) => (
+          {Array.from("Welcome to My Wall").map((char, index) => (
             <motion.span
               key={index}
               initial={{ y: -60, opacity: 0 }}
@@ -205,94 +205,95 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2 — Quote section with two transitioning background layers */}
-      <section className="relative py-56">
-        <div className="absolute inset-0">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={bgIndex}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.2 }}
-              className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url('${bgImages[bgIndex]}')` }}
-            />
-          </AnimatePresence>
+    {/* 2 — Compact Quote Section (Faster Background Transition) */}
+<section className="relative min-h-[50vh] md:min-h-[70vh] flex items-center justify-center text-center px-4 md:px-10 overflow-hidden">
+  <div className="absolute inset-0">
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={bgIndex}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.8 }} // faster fade
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url('${bgImages[bgIndex]}')` }}
+      />
+    </AnimatePresence>
 
-          <motion.div
-            animate={{ opacity: [0.12, 0.24, 0.12], x: [0, 20, 0] }}
-            transition={{ duration: 6, repeat: Infinity }}
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-600/8 to-transparent"
-          />
-        </div>
+    {/* Background wave motion – faster and smoother */}
+    <motion.div
+      animate={{ opacity: [0.15, 0.3, 0.15], x: [0, 25, 0] }}
+      transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} // faster loop
+      className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-600/10 to-transparent"
+    />
+  </div>
 
-        <div className="absolute inset-0 bg-[#0B1120]/65 backdrop-blur-sm" />
+  <div className="absolute inset-0 bg-[#0B1120]/70 backdrop-blur-sm" />
 
-        <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
-          <motion.blockquote
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="text-4xl md:text-5xl font-bold text-blue-300 leading-relaxed italic drop-shadow-[0_0_18px_rgba(59,130,246,0.45)]"
-          >
-            “Digital communication isn’t just about creating but,
-            connecting minds, shaping narratives, and inspiring new ways of
-            seeing the world.”
-          </motion.blockquote>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-            className="mt-6 text-gray-300 text-base uppercase tracking-widest font-light"
-          >
-            — Azeez Sulaiman
-          </motion.p>
-        </div>
-      </section>
+  <div className="relative z-10 max-w-3xl mx-auto">
+    <motion.blockquote
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-2xl md:text-4xl font-semibold text-blue-300 leading-relaxed italic drop-shadow-[0_0_12px_rgba(59,130,246,0.4)]"
+    >
+      “Digital communication isn’t just about creating but, connecting
+      minds and inspiring new ways of seeing the world.”
+    </motion.blockquote>
+    <motion.p
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.5 }}
+      className="mt-4 text-gray-300 text-sm md:text-base uppercase tracking-widest font-light"
+    >
+      — Azeez Sulaiman
+    </motion.p>
+  </div>
+</section>
 
-     {/* 3 — Testimonials (auto-moving carousel, alternating direction) */}
-<section className="py-20 bg-[#0D132A] text-gray-200 text-center relative overflow-hidden">
-  <div className="absolute left-6 top-0 h-full w-[2px] bg-blue-400/10 blur-[1px]" />
 
+     {/* 3 — Testimonials (Faster Carousel) */}
+<section className="py-16 bg-[#0D132A] text-gray-200 text-center relative overflow-hidden">
   <motion.h2
     initial={{ opacity: 0, y: -20 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6 }}
-    className="text-3xl md:text-4xl font-bold text-blue-400 mb-10 relative z-10"
+    className="text-3xl md:text-4xl font-bold text-blue-400 mb-8"
   >
     Clients Comments About Me
   </motion.h2>
 
-  {/* ✅ Smooth Auto-Moving Testimonials (Alternating Direction) */}
-  <div className="relative overflow-hidden max-w-7xl mx-auto px-6 group">
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 overflow-hidden group">
     <motion.div
       className="flex gap-6"
-      animate={{ x: ["0%", "-50%", "0%"] }}
+      animate={{ x: ["0%", "-100%"] }}
       transition={{
-        duration: 50, // slower, elegant motion
+        duration: 4, // ⚡ much faster than before
         ease: "linear",
         repeat: Infinity,
       }}
-      whileHover={{ x: 0 }} // pause animation when hovered
+      whileHover={{ x: 0 }} // pause when hovered
     >
       {[...testimonials, ...testimonials].map((t, index) => (
         <motion.div
           key={index}
-          className="min-w-[300px] md:min-w-[350px] bg-[#1B223A] border border-blue-900 rounded-2xl p-6 shadow-lg hover:shadow-blue-500/30 transition-all"
+          className="min-w-[250px] sm:min-w-[300px] md:min-w-[350px] bg-[#1B223A] border border-blue-900 rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-blue-500/30 transition-all"
         >
-          <p className="text-gray-300 italic mb-4">“{t.feedback}”</p>
-          <h4 className="text-blue-400 font-semibold">{t.name}</h4>
-          <p className="text-sm text-gray-500">{t.position}</p>
+          <p className="text-gray-300 italic mb-4 text-sm sm:text-base">
+            “{t.feedback}”
+          </p>
+          <h4 className="text-blue-400 font-semibold text-base sm:text-lg">{t.name}</h4>
+          <p className="text-xs sm:text-sm text-gray-500">{t.position}</p>
         </motion.div>
       ))}
     </motion.div>
 
-    {/* Gradient fade edges for smooth flow */}
-    <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0D132A] to-transparent pointer-events-none"></div>
-    <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0D132A] to-transparent pointer-events-none"></div>
+    {/* Gradient fade edges */}
+    <div className="absolute inset-y-0 left-0 w-16 sm:w-24 bg-gradient-to-r from-[#0D132A] to-transparent pointer-events-none"></div>
+    <div className="absolute inset-y-0 right-0 w-16 sm:w-24 bg-gradient-to-l from-[#0D132A] to-transparent pointer-events-none"></div>
   </div>
 </section>
+
 
     </>
   );

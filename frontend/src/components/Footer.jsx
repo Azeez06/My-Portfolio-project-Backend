@@ -10,11 +10,10 @@ export default function Footer() {
         {/* --- Brand / Intro Section --- */}
         <div className="md:translate-y-[-10px]">
           <h2 className="text-2xl font-semibold text-white mb-3">
-            &lt;/&gt; Horlamilekan
+            &lt;/&gt; Azeez
           </h2>
           <p className="text-sm mb-3 leading-relaxed">
-            I create and manage impactful digital experiences — blending 
-            journalism, design, and technology to tell stories that inspire change.
+            I create and manage impactful digital experiences.
           </p>
           <Link
             to="/contact"
@@ -88,7 +87,7 @@ export default function Footer() {
 
       {/* --- Copyright Line --- */}
       <div className="border-t border-blue-900 mt-10 pt-6 text-center text-xs text-gray-500">
-        © {new Date().getFullYear()} Horlamilekan | All Rights Reserved
+        © {new Date().getFullYear()} Azeez | All Rights Reserved
       </div>
     </footer>
   );

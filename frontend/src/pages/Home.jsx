@@ -1,0 +1,299 @@
+"use client";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react";
+
+export default function Home() {
+  const images = [
+    "src/assets/myphoto.jpg",
+    "src/assets/my photo 2.jpg",
+    "src/assets/my photo 3.jpg",
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+
+  // Background images for section 2 (digital/web themed)
+  const bgImages = [
+    "https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=1600&q=100",
+    "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=100",
+  ];
+  const [bgIndex, setBgIndex] = useState(0);
+
+  const testimonials = [
+    {
+      name: "Ade",
+      position: "Creative Director, DesignX",
+      feedback:
+        "Azeez’s design sense and communication clarity are exceptional. He brings structure and purpose to every project he handles.",
+    },
+    {
+      name: "Saminu",
+      position: "AI Research Fellow, GCF",
+      feedback:
+        "Working with Azeez was inspiring. His mix of storytelling and analytical thinking makes him stand out in any team.",
+    },
+    {
+      name: "Bola",
+      position: "Editor, The Pioneer Magazine",
+      feedback:
+        "He’s a natural leader — thoughtful, humble, and committed to excellence. Every publication he led had a distinct voice.",
+    },
+    {
+      name: "Hassan",
+      position: "Founder, TechBridge Africa",
+      feedback:
+        "Azeez merges creativity with professionalism in a way few young designers can. His branding work is top-tier.",
+    },
+    {
+      name: "Tosin",
+      position: "Digital Strategist, NovaTech",
+      feedback:
+        "His campaigns are data-driven and creative. Azeez knows how to make audiences care about the message.",
+    },
+    {
+      name: "Mariam",
+      position: "Program Coordinator, Youth Innovators Hub",
+      feedback:
+        "Reliable and visionary — he goes beyond expectations to deliver projects that truly stand out.",
+    },
+  ];
+
+  // auto switch profile images
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDirection(1);
+      setCurrentIndex((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  // auto switch background images (section 2)
+  useEffect(() => {
+    const bint = setInterval(() => {
+      setBgIndex((i) => (i + 1) % bgImages.length);
+    }, 6000);
+    return () => clearInterval(bint);
+  }, [bgImages.length]);
+
+  const variants = {
+    enter: (direction) => ({
+      x: direction > 0 ? 100 : -100,
+      opacity: 0,
+      scale: 0.95,
+    }),
+    center: { x: 0, opacity: 1, scale: 1 },
+    exit: (direction) => ({
+      x: direction > 0 ? -100 : 100,
+      opacity: 0,
+      scale: 1.05,
+    }),
+  };
+
+  const glowText = {
+    rest: { opacity: 1, color: "#9CA3AF" },
+    hover: {
+      opacity: [1, 0.6, 1],
+      color: "#60A5FA",
+      textShadow: "0 0 8px rgba(96,165,250,0.8)",
+      transition: { duration: 1.2, repeat: Infinity, repeatType: "reverse" },
+    },
+  };
+
+  return (
+    <>
+      {/* 1 — Intro */}
+      <section className="py-20 bg-[#0B1120] text-gray-300 text-center">
+        <div className="flex justify-center mb-12 flex-wrap">
+          {Array.from("Welcome to My Portfolio").map((char, index) => (
+            <motion.span
+              key={index}
+              initial={{ y: -60, opacity: 0 }}
+              animate={{
+                y: [0, -8, 0],
+                opacity: 1,
+              }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                repeat: Infinity,
+                repeatDelay: 3,
+                ease: "easeOut",
+              }}
+              className="text-4xl md:text-5xl font-bold text-blue-400 inline-block"
+            >
+              {char === " " ? "\u00A0" : char}
+            </motion.span>
+          ))}
+        </div>
+
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+          {/* left: profile slideshow */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="md:w-[45%] flex justify-center relative overflow-hidden rounded-2xl"
+          >
+            <AnimatePresence mode="wait" custom={direction}>
+              <motion.img
+                key={currentIndex}
+                src={images[currentIndex]}
+                alt="Azeez Sulaiman"
+                custom={direction}
+                variants={variants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{ duration: 0.8, ease: "easeInOut" }}
+                className="absolute w-64 h-64 md:w-80 md:h-80 object-cover rounded-2xl shadow-lg border border-blue-900"
+              />
+            </AnimatePresence>
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-2xl" />
+          </motion.div>
+
+          {/* right: text */}
+          <motion.div
+            initial="rest"
+            whileHover="hover"
+            animate="rest"
+            className="md:w-[50%] text-center md:text-left space-y-6 cursor-pointer"
+            variants={glowText}
+          >
+            <motion.p variants={glowText} className="text-gray-400 leading-relaxed">
+              I’m <span className="text-blue-300 font-semibold">Azeez Sulaiman</span>, a
+              recent Mass Communication graduate at Ahmadu Bello University, Zaria. I'm a creative designer and AI
+              researcher who is passionate about the intersection of storytelling,
+              technology and design. My work focuses on transforming complex
+              ideas into clear, engaging narratives that connect people, inspire
+              learning, and drive social impact.
+            </motion.p>
+
+            <motion.p variants={glowText} className="text-gray-400 leading-relaxed">
+              Over the years, I’ve led editorial teams, managed digital campaigns, and
+              built innovative projects that merge communication strategy with
+              data-driven insights. My exploration of AI continues to shape how
+              I approach journalism ethics, media innovation, and digital
+              storytelling across emerging industries.
+            </motion.p>
+
+            <div className="flex flex-wrap justify-center md:justify-start gap-4">
+              <motion.a
+                href="/projects"
+                whileHover={{
+                  scale: 1.05,
+                  backgroundColor: "#2563EB",
+                  boxShadow: "0 0 12px rgba(59,130,246,0.7)",
+                }}
+                className="inline-block bg-blue-500 text-white font-medium px-6 py-3 rounded-lg shadow transition"
+              >
+                View My Work
+              </motion.a>
+
+              <motion.a
+                href="/contact"
+                whileHover={{
+                  scale: 1.05,
+                  backgroundColor: "#1E3A8A",
+                  boxShadow: "0 0 12px rgba(59,130,246,0.7)",
+                }}
+                className="inline-block bg-transparent border border-blue-500 text-blue-400 font-medium px-6 py-3 rounded-lg shadow transition"
+              >
+                Let’s Talk
+              </motion.a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 2 — Quote section with two transitioning background layers */}
+      <section className="relative py-56">
+        <div className="absolute inset-0">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={bgIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.2 }}
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url('${bgImages[bgIndex]}')` }}
+            />
+          </AnimatePresence>
+
+          <motion.div
+            animate={{ opacity: [0.12, 0.24, 0.12], x: [0, 20, 0] }}
+            transition={{ duration: 6, repeat: Infinity }}
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-600/8 to-transparent"
+          />
+        </div>
+
+        <div className="absolute inset-0 bg-[#0B1120]/65 backdrop-blur-sm" />
+
+        <div className="relative z-10 max-w-5xl mx-auto text-center px-6">
+          <motion.blockquote
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-4xl md:text-5xl font-bold text-blue-300 leading-relaxed italic drop-shadow-[0_0_18px_rgba(59,130,246,0.45)]"
+          >
+            “Digital communication isn’t just about creating but,
+            connecting minds, shaping narratives, and inspiring new ways of
+            seeing the world.”
+          </motion.blockquote>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="mt-6 text-gray-300 text-base uppercase tracking-widest font-light"
+          >
+            — Azeez Sulaiman
+          </motion.p>
+        </div>
+      </section>
+
+     {/* 3 — Testimonials (auto-moving carousel, alternating direction) */}
+<section className="py-20 bg-[#0D132A] text-gray-200 text-center relative overflow-hidden">
+  <div className="absolute left-6 top-0 h-full w-[2px] bg-blue-400/10 blur-[1px]" />
+
+  <motion.h2
+    initial={{ opacity: 0, y: -20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    className="text-3xl md:text-4xl font-bold text-blue-400 mb-10 relative z-10"
+  >
+    Clients Comments About Me
+  </motion.h2>
+
+  {/* ✅ Smooth Auto-Moving Testimonials (Alternating Direction) */}
+  <div className="relative overflow-hidden max-w-7xl mx-auto px-6 group">
+    <motion.div
+      className="flex gap-6"
+      animate={{ x: ["0%", "-50%", "0%"] }}
+      transition={{
+        duration: 50, // slower, elegant motion
+        ease: "linear",
+        repeat: Infinity,
+      }}
+      whileHover={{ x: 0 }} // pause animation when hovered
+    >
+      {[...testimonials, ...testimonials].map((t, index) => (
+        <motion.div
+          key={index}
+          className="min-w-[300px] md:min-w-[350px] bg-[#1B223A] border border-blue-900 rounded-2xl p-6 shadow-lg hover:shadow-blue-500/30 transition-all"
+        >
+          <p className="text-gray-300 italic mb-4">“{t.feedback}”</p>
+          <h4 className="text-blue-400 font-semibold">{t.name}</h4>
+          <p className="text-sm text-gray-500">{t.position}</p>
+        </motion.div>
+      ))}
+    </motion.div>
+
+    {/* Gradient fade edges for smooth flow */}
+    <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#0D132A] to-transparent pointer-events-none"></div>
+    <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#0D132A] to-transparent pointer-events-none"></div>
+  </div>
+</section>
+
+    </>
+  );
+}

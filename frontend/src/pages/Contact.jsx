@@ -22,7 +22,11 @@ export default function Contact() {
     setStatus("Sending...");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/contact", formData);
+     const res = await axios.post(
+  "https://my-portfolio-project-backend-3qf0.onrender.com/api/contact",
+  formData
+);
+
       if (res.status === 201) {
         setStatus("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" }); // reset form

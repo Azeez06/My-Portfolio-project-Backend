@@ -41,7 +41,8 @@ export default function Services() {
   ];
 
   return (
-    <section className="bg-[#0b1120] text-white py-16 min-h-screen">
+   <section className="bg-[#0b1120] text-white py-4 min-h-[80vh]">
+
       <div className="max-w-6xl mx-auto px-6 text-center">
         <h1 className="text-4xl font-bold mb-4">My Services</h1>
         <p className="text-gray-400 mb-12">

@@ -6,7 +6,8 @@ import Portfolio from "./pages/Portfolio";
 import Testimonials from "./pages/Testimonials";
 import Contact from "./pages/Contact";
 import Education from "./pages/Education";
-import Graphics from "./Graphics/Graphics"; // ✅ Import your Graphics page
+import Graphics from "./Graphics/Graphics";
+import Admin from "./pages/Admin"; // ✅ Import your admin page
 
 const router = createBrowserRouter([
   {
@@ -19,8 +20,12 @@ const router = createBrowserRouter([
       { path: "portfolio", element: <Portfolio /> },
       { path: "testimonials", element: <Testimonials /> },
       { path: "contact", element: <Contact /> },
-      { path: "graphics", element: <Graphics /> }, // ✅ Add this route
+      { path: "graphics", element: <Graphics /> },
     ],
+  },
+  {
+    path: "/admin", // ✅ Standalone admin page (no navbar/footer)
+    element: <Admin />,
   },
 ]);
 

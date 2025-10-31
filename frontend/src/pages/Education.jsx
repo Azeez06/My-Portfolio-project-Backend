@@ -42,11 +42,12 @@ export default function Education() {
   ];
 
   return (
-    <section className="py-16 text-center text-white bg-[#0B1120]">
+    <section className="bg-[#0b1120] text-white py-8 min-h-[80vh] text-center">
+      {/* Centered heading */}
       <h2 className="text-3xl font-bold text-blue-400 mb-2">
         Education & Training
       </h2>
-      <p className="text-gray-300 mb-12">
+      <p className="text-gray-300 mb-12 max-w-3xl mx-auto">
         A timeline of my academic journey and professional certifications.
       </p>
 

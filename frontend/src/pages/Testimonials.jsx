@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Globe, Share2, FileText, Laptop, Brush, Cpu, CheckSquare } from "lucide-react";
 
-export default function Testimonials() {
+export default function Projects() {
   const projects = [
     {
       title: "Business Website Development",
@@ -15,7 +15,7 @@ export default function Testimonials() {
       title: "Social Media Marketing Campaign",
       description:
         "Planned and executed a digital campaign that boosted client engagement by 45% through strategic content scheduling and analytics.",
-      link: "#",
+      link: "https://drive.google.com/drive/folders/1FY3QaHiSzfAhBulCPOeUYsfqP_7Ceq87",
       icon: <Share2 className="w-10 h-10 text-blue-500 mb-3 mx-auto" />,
     },
     {
@@ -56,9 +56,9 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="py-16 px-6 text-center">
-      {/* Section heading */}
-      <h2 className="text-3xl font-bold text-blue-400 mb-4">MY Projects</h2>
+    <section className="bg-[#0b1120] text-white py-8 min-h-[80vh] text-center">
+      {/* Centered Section heading */}
+      <h2 className="text-3xl font-bold text-blue-400 mb-2">MY Projects</h2>
       <p className="text-gray-400 mb-10 max-w-3xl mx-auto">
         A selection of my recent projects that reflect my creativity, technical
         skill, and passion for digital solutions.

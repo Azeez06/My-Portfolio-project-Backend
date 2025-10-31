@@ -53,7 +53,7 @@ export default function Portfolio() {
   ];
 
   return (
-    <section className="min-h-screen bg-[#0B0F19] text-white py-16 px-6">
+    <section className="bg-[#0b1120] text-white py-4 min-h-[80vh]">
       <div className="max-w-5xl mx-auto text-center">
         {/* Heading */}
         <h1 className="text-4xl font-bold mb-4">My Skills</h1>

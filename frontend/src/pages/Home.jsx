@@ -6,7 +6,7 @@ export default function Home() {
   const images = [
       "/Graphics/myphoto.jpg",
   "/Graphics/my photo 2.jpg",
-  "/Graphics/my photo 3.jpg",
+  "/Graphics/Anotherhd.png"  ,
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -21,14 +21,14 @@ export default function Home() {
 
   const testimonials = [
     {
-      name: "Ade",
-      position: "Creative Director, DesignX",
+      name: "Alawode Khalid",
+      position: "Brand Manager",
       feedback:
         "Azeez’s design sense and communication clarity are exceptional. He brings structure and purpose to every project he handles.",
     },
     {
-      name: "Saminu",
-      position: "AI Research Fellow, GCF",
+      name: "Ahmad Sami",
+      position: "Social media codinator, Excelerate",
       feedback:
         "Working with Azeez was inspiring. His mix of storytelling and analytical thinking makes him stand out in any team.",
     },
@@ -38,9 +38,27 @@ export default function Home() {
       feedback:
         "He’s a very thoughtful, humble, and committed to excellence. Every publication he led had a distinct voice.",
     },
+     {
+      name: "Abdul Salam, President, ABU CAMPUS PRESS",
+      position: "Editor, The Pioneer Magazine",
+      feedback:
+        "Azeez dedication is just massive. He consistently delivered high-quality work under tight deadlines.",
+    },
+    {
+      name: "Adeniyi Yusuf",
+      position: "Editor, Campus Herald",
+      feedback:
+        "He’s a very thoughtful, humble, and committed to excellence. Every publication he led had a distinct voice.",
+    },
+      {
+      name: "Feyikemi",
+      position: "2025 ABU MASS COMMUNICATION GRADUATE",
+      feedback:
+        "Azeez is a natural leader with a keen eye for detail.",
+    },
     {
       name: "Hassan",
-      position: "Founder, TechBridge Africa",
+      position: "Classrepresentative, ABU Mass Communication",
       feedback:
         "Azeez merges creativity with professionalism in a way few young designers can. His branding work is top-tier.",
     },
@@ -52,7 +70,7 @@ export default function Home() {
     },
     {
       name: "Mariam",
-      position: "Program Coordinator, Youth Innovators Hub",
+      position: "Content Creator",
       feedback:
         "Azeez always goes beyond expectations to deliver projects that truly stand out.",
     },
@@ -102,8 +120,8 @@ export default function Home() {
   return (
     <>
       {/* 1 — Intro */}
-      <section className="py-20 bg-[#0B1120] text-gray-300 text-center">
-        <div className="flex justify-center mb-12 flex-wrap">
+      <section className="pt-12 pb-16 bg-[#0B1120] text-gray-300 text-center">
+  <div className="flex justify-center mb-8 flex-wrap">
           {Array.from("My Portfolio").map((char, index) => (
             <motion.span
               key={index}
@@ -178,7 +196,7 @@ export default function Home() {
 
             <div className="flex flex-wrap justify-center md:justify-start gap-4">
               <motion.a
-                href="/projects"
+                href="/testimonials"
                 whileHover={{
                   scale: 1.05,
                   backgroundColor: "#2563EB",
@@ -268,7 +286,7 @@ export default function Home() {
       className="flex gap-6"
       animate={{ x: ["0%", "-100%"] }}
       transition={{
-        duration: 4, // ⚡ much faster than before
+        duration: 8, // ⚡ much faster than before
         ease: "linear",
         repeat: Infinity,
       }}

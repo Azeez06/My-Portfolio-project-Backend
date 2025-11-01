@@ -26,7 +26,7 @@ export default function Admin() {
   useEffect(() => {
     if (!isAuthenticated) return; // Only fetch if logged in
 
-    fetch("http://localhost:5000/api/messages")
+    fetch("https://my-portfolio-project-backend-3qf0.onrender.com/api/messages")
       .then((res) => res.json())
       .then((data) => {
         console.log("Fetched data:", data);

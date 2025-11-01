@@ -66,7 +66,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center justify-center md:justify-start gap-2">
               <Mail className="w-4 h-4 text-blue-400" />
-              <a href="mailto:your@email.com" className="hover:text-blue-400">
+              <a href="mailto:azeezsulaiman05@gmail.com" className="hover:text-blue-400">
                 Email
               </a>
             </li>

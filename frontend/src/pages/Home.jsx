@@ -284,9 +284,9 @@ export default function Home() {
   <div className="relative max-w-7xl mx-auto px-4 sm:px-6 overflow-hidden group">
     <motion.div
       className="flex gap-6"
-      animate={{ x: ["0%", "-100%"] }}
+      animate={{ x: ["0%", "-50%"] }}
       transition={{
-        duration: 8, // ⚡ much faster than before
+        duration: 10, // ⚡ much faster than before
         ease: "linear",
         repeat: Infinity,
       }}

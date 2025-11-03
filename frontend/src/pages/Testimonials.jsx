@@ -5,10 +5,10 @@ import { Globe, Share2, FileText, Laptop, Brush, Cpu, CheckSquare } from "lucide
 export default function Projects() {
   const projects = [
     {
-      title: "Business Website Development",
+      title: "Website Development",
       description:
         "A responsive business website built with React and Tailwind CSS, featuring clean UI, SEO optimisation, and fast loading time.",
-      link: "#",
+      link: "https://educative-web-2zod.vercel.app/",
       icon: <Globe className="w-10 h-10 text-blue-500 mb-3 mx-auto" />,
     },
     {

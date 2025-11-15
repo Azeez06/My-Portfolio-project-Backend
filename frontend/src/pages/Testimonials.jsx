@@ -15,7 +15,7 @@ export default function Projects() {
       title: "Social Media Marketing Campaign",
       description:
         "Planned and executed a digital campaign that boosted client engagement by 45% through strategic content scheduling and analytics.",
-      link: "https://drive.google.com/drive/folders/1FY3QaHiSzfAhBulCPOeUYsfqP_7Ceq87",
+      link: "/social-media-campaigns",
       icon: <Share2 className="w-10 h-10 text-blue-500 mb-3 mx-auto" />,
     },
     {
